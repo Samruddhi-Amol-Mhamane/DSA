@@ -11,23 +11,20 @@
 class Solution {
 public:
     ListNode* deleteMiddle(ListNode* head) {
-        ListNode* slow= head;
-        ListNode* fast= head;
-        if(head == NULL || head->next == NULL){
+        ListNode* slow=head;
+        ListNode* fast=head;
+        ListNode* prev=head;
+        if(head->next==NULL){
             return NULL;
         }
-
-        while(fast!=NULL && fast->next != NULL){
+        while(fast != NULL && fast->next != NULL){
             slow=slow->next;
             fast=fast->next->next;
         }
-        ListNode* temp=head;
-        while(temp->next != slow){
-            temp=temp->next;
+        while(prev->next != slow){
+            prev=prev->next;
         }
-        temp->next=slow->next;
-        slow->next=NULL;
+        prev->next=slow->next;
         return head;
-
     }
 };
