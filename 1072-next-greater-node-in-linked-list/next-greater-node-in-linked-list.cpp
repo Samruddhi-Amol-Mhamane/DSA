@@ -15,11 +15,10 @@ public:
        
         ListNode* temp=head;
         vector<int>vec;
-        int i=0;
+        
         while(temp != NULL){
             vec.push_back(temp->val);
             temp=temp->next;
-            i++;
         }
 
         vector<int>ans(vec.size(), 0);
